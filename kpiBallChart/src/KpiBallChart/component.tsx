@@ -1,6 +1,8 @@
 import * as React from "react";
 import {map} from "d3";
 
+// @ts-ignore
+import styles from "./../../style/visual.less";
 
 /**
  * Gegevens weergeven met React
@@ -56,12 +58,12 @@ export class KpiBolChart extends React.Component<{}> {
         console.log(`even kijken ${kpiData}`)
         return (
             <>
-                <div className="circleCard">
+                <div className="circle-card">
                     {kpiData.map((kpiData) => {
                         return (
                             <div className="whole-circle" key={kpiData[0]}>
-                                <div className="circleCardTop theme-yellow-top"/>
-                                <div className="circleCardBottom theme-yellow-bottom"/>
+                                <div className={`circle-card-top theme-${kpiData[1]}-top`}/>
+                                <div className={`circle-card-bottom theme-${kpiData[1]}-bottom`}/>
                             </div>
                         )
                     })}

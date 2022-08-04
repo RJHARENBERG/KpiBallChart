@@ -490,10 +490,10 @@ class KpiBolChart extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
         const { kpiData } = this.state;
         console.log(`even kijken ${kpiData}`);
         return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "circleCard" }, kpiData.map((kpiData) => {
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "circle-card" }, kpiData.map((kpiData) => {
                 return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "whole-circle", key: kpiData[0] },
-                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "circleCardTop theme-yellow-top" }),
-                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "circleCardBottom theme-yellow-bottom" })));
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: `circle-card-top theme-${kpiData[1]}-top` }),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: `circle-card-bottom theme-${kpiData[1]}-bottom` })));
             }))));
     }
 }
