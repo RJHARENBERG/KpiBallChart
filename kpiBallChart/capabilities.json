@@ -1,84 +1,31 @@
 {
     "dataRoles": [
         {
-            "displayName": "Category Data",
-            "name": "category",
+            "displayName": "id",
+            "name": "id",
             "kind": "Grouping"
         },
         {
-            "displayName": "Measure Data",
-            "name": "measure",
+            "displayName": "status",
+            "name": "status",
             "kind": "Measure"
         }
     ],
-    "objects": {
-        "dataPoint": {
-            "displayName": "Data colors",
-            "properties": {
-                "defaultColor": {
-                    "displayName": "Default color",
-                    "type": {
-                        "fill": {
-                            "solid": {
-                                "color": true
-                            }
-                        }
-                    }
-                },
-                "showAllDataPoints": {
-                    "displayName": "Show all",
-                    "type": {
-                        "bool": true
-                    }
-                },
-                "fill": {
-                    "displayName": "Fill",
-                    "type": {
-                        "fill": {
-                            "solid": {
-                                "color": true
-                            }
-                        }
-                    }
-                },
-                "fillRule": {
-                    "displayName": "Color saturation",
-                    "type": {
-                        "fill": {}
-                    }
-                },
-                 "fontSize": {
-                    "displayName": "Text Size",
-                    "type": {
-                        "formatting": {
-                            "fontSize": true
-                        }
-                    }
-                }
-            }
-        }
-    },
-    "dataViewMappings": [
-        {
-            "categorical": {
-                "categories": {
-                    "for": {
-                        "in": "category"
+
+    "objects": {},
+
+    "dataViewMappings": [{
+        "table": {
+            "rows": {
+                "select": [
+                    {
+                        "bind": {"to": "status"}
                     },
-                    "dataReductionAlgorithm": {
-                        "top": {}
+                    {
+                        "bind": {"to": "id"}
                     }
-                },
-                "values": {
-                    "select": [
-                        {
-                            "bind": {
-                                "to": "measure"
-                            }
-                        }
-                    ]
-                }
+                ]
             }
         }
-    ]
+    }]
 }
