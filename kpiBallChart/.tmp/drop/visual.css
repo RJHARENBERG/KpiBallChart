@@ -21,8 +21,8 @@ p {
 .whole-circle {
   margin: 5px;
   position: relative;
-  padding-bottom: 50px;
-  max-height: 50px;
+  padding-bottom: 25px;
+  max-height: 25px;
 }
 .circle-card-top {
   box-sizing: border-box;
