@@ -11,14 +11,18 @@ import * as ReactDOM from "react-dom";
 import {KpiBolChart, initialState} from "./KpiBallChart/component";
 /**Import css style*/
 import "./../style/visual.less";
+/**Het bestand visual.ts configureren
+ * Haal de huidige grootte van de visual-viewport op uit het object options.*/
+import IViewport = powerbi.IViewport;
 
 /**Omdat standaard Power BI TypeScript-instellingen niet worden herkend React tsx-bestanden
- *
  * Als u het onderdeel wilt weergeven, voegt u het HTML-doelelement toe aan visual.ts. Dit element bevindt zich
  * HTMLElement in VisualConstructorOptions, dat wordt doorgegeven aan de constructor.*/
 export class Visual implements IVisual {
     private target: HTMLElement;
     private reactRoot: React.ComponentElement<any, any>;
+
+    private viewport: IViewport;
 
     constructor(options: VisualConstructorOptions) {
         this.reactRoot = React.createElement(KpiBolChart, {});
@@ -36,8 +40,14 @@ export class Visual implements IVisual {
         if(options.dataViews && options.dataViews[0]){
             const dataView: DataView = options.dataViews[0];
 
+            this.viewport = options.viewport;
+            const { width, height } = this.viewport;
+            const size = Math.min(width, height);
+
             KpiBolChart.update({
-                kpiData: dataView.table.rows
+                kpiData: dataView.table.rows,
+                size
+
             });
         } else {
             this.clear();

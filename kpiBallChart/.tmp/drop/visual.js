@@ -462,7 +462,8 @@ if (true) {
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(735);
 
 const initialState = {
-    kpiData: []
+    kpiData: [],
+    size: 0
 };
 class KpiBolChart extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
     constructor(props) {
@@ -483,24 +484,27 @@ class KpiBolChart extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
     componentWillUnmount() {
         KpiBolChart.updateCallback = null;
     }
-    /**
-     * het renderen van het react component
-     */
+    /** hier sorteren van de status op kleur? of aparte variabele / kolommen maken van uit de data base?*/
+    /** het renderen van het react component */
     render() {
-        const { kpiData } = this.state;
+        const { kpiData, size } = this.state;
         console.log(`even kijken ${kpiData}`);
+        const style = { width: size, height: size };
         return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "circle-card" }, kpiData.map((kpiData) => {
-                return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "whole-circle", key: kpiData[0] },
-                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: `circle-card-top theme-${kpiData[1]}-top` }),
-                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: `circle-card-bottom theme-${kpiData[1]}-bottom` })));
-            }))));
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "container", style: style },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "wrapper" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Overall - (datum)"),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "(totaal) KPI's require your attention."),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "circle-card" }, kpiData.map((kpiData) => {
+                        return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "whole-circle", key: kpiData[0] },
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: `circle-card-top theme-${kpiData[1]}-top` }),
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: `circle-card-bottom theme-${kpiData[1]}-bottom` })));
+                    }))))));
     }
 }
-/**
- * Uw visual instellen om gegevens te verzenden
- * In deze sectie werkt u uw visual bij om updates te verzenden naar exemplaren in het onderdeelbestand .
- */
+/**Uw visual instellen om gegevens te verzenden
+ *
+ * In deze sectie werkt u uw visual bij om updates te verzenden naar exemplaren in het onderdeelbestand .*/
 KpiBolChart.updateCallback = null;
 /* unused harmony default export */ var __WEBPACK_DEFAULT_EXPORT__ = ((/* unused pure expression or super */ null && (KpiBolChart)));
 
@@ -524,7 +528,6 @@ KpiBolChart.updateCallback = null;
 /**Import css style*/
 
 /**Omdat standaard Power BI TypeScript-instellingen niet worden herkend React tsx-bestanden
- *
  * Als u het onderdeel wilt weergeven, voegt u het HTML-doelelement toe aan visual.ts. Dit element bevindt zich
  * HTMLElement in VisualConstructorOptions, dat wordt doorgegeven aan de constructor.*/
 class Visual {
@@ -540,8 +543,12 @@ class Visual {
     update(options) {
         if (options.dataViews && options.dataViews[0]) {
             const dataView = options.dataViews[0];
+            this.viewport = options.viewport;
+            const { width, height } = this.viewport;
+            const size = Math.min(width, height);
             _KpiBallChart_component__WEBPACK_IMPORTED_MODULE_2__/* .KpiBolChart.update */ .Zg.update({
-                kpiData: dataView.table.rows
+                kpiData: dataView.table.rows,
+                size
             });
         }
         else {

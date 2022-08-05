@@ -1,37 +1,45 @@
+h1 {
+  margin: 0 0 0 5px;
+}
+p {
+  margin: 0 0 5px 5px;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: start;
+  width: 100%;
+  height: 100%;
+}
 .circle-card {
-  height: 100px;
+  height: 100%;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
 }
 .whole-circle {
-  margin: 10px;
+  margin: 5px;
+  position: relative;
+  padding-bottom: 50px;
+  max-height: 50px;
 }
 .circle-card-top {
-  position: relative;
   box-sizing: border-box;
   border-top-left-radius: 100% 200%;
   border-top-right-radius: 100% 200%;
-  width: 100px;
-  height: 50px;
-  padding-bottom: 50px;
+  width: 50px;
+  height: 25px;
+  padding-bottom: 25px;
 }
 .circle-card-bottom {
   position: absolute;
-  top: 60px;
+  top: 25px;
   box-sizing: border-box;
   border-bottom-left-radius: 100% 200%;
   border-bottom-right-radius: 100% 200%;
-  width: 100px;
-  height: 50px;
-}
-p {
-  text-align: center;
-  line-height: 30px;
-  font-size: 20px;
-  font-weight: bold;
-  position: relative;
-  top: -30px;
-  margin: 50% 0 0 0;
+  width: 50px;
+  height: 25px;
 }
 .theme-yellow-top {
   background: #ffde00;
