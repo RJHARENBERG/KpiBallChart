@@ -488,7 +488,7 @@ class KpiBolChart extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
     /** het renderen van het react component */
     render() {
         const { kpiData, size } = this.state;
-        console.log(`even kijken ${kpiData}`);
+        console.log(kpiData);
         const style = { width: size, height: size };
         return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "container", style: style },

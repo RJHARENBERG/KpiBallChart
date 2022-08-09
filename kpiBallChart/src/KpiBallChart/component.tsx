@@ -49,7 +49,7 @@ export class KpiBolChart extends React.Component<{}> {
     /** het renderen van het react component */
     render() {
         const {kpiData, size} = this.state;
-        console.log(`even kijken ${kpiData}`)
+        console.log(kpiData)
 
         const style: React.CSSProperties = { width: size, height: size };
 
