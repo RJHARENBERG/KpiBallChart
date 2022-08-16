@@ -5,8 +5,8 @@ import VisualConstructorOptions = powerbiVisualsApi.extensibility.visual.VisualC
 import DialogConstructorOptions = powerbiVisualsApi.extensibility.visual.DialogConstructorOptions;
 var powerbiKey: any = "powerbi";
 var powerbi: any = window[powerbiKey];
-var kpiBallChart70A84ACCF598436F83218A182FDA408D_DEBUG: IVisualPlugin = {
-    name: 'kpiBallChart70A84ACCF598436F83218A182FDA408D_DEBUG',
+var kpiBallChart70A84ACCF598436F83218A182FDA408D: IVisualPlugin = {
+    name: 'kpiBallChart70A84ACCF598436F83218A182FDA408D',
     displayName: 'KpiBallChart',
     class: 'Visual',
     apiVersion: '3.8.0',
@@ -27,6 +27,6 @@ var kpiBallChart70A84ACCF598436F83218A182FDA408D_DEBUG: IVisualPlugin = {
 if (typeof powerbi !== "undefined") {
     powerbi.visuals = powerbi.visuals || {};
     powerbi.visuals.plugins = powerbi.visuals.plugins || {};
-    powerbi.visuals.plugins["kpiBallChart70A84ACCF598436F83218A182FDA408D_DEBUG"] = kpiBallChart70A84ACCF598436F83218A182FDA408D_DEBUG;
+    powerbi.visuals.plugins["kpiBallChart70A84ACCF598436F83218A182FDA408D"] = kpiBallChart70A84ACCF598436F83218A182FDA408D;
 }
-export default kpiBallChart70A84ACCF598436F83218A182FDA408D_DEBUG;
+export default kpiBallChart70A84ACCF598436F83218A182FDA408D;

@@ -1,4 +1,5 @@
 import * as React from "react";
+// import svg from "../../assets/undraw_articles_wbpb.svg";
 
 /**Gegevens weergeven met React
  *
@@ -51,14 +52,16 @@ export class KpiBolChart extends React.Component<{}> {
         const {kpiData, size} = this.state;
         console.log(kpiData)
 
-        const style: React.CSSProperties = { width: size, height: size };
+        const style: React.CSSProperties = {width: size, height: size};
 
         return (
             <>
                 <div className="container" style={style}>
                     <div className="wrapper">
-                        <h1>Overall - (datum)</h1>
-                        <p>(totaal) KPI's require your attention.</p>
+                        <div className="header">
+                            <h1>Overall - (datum)</h1>
+                            <p>(totaal) KPI's require your attention.</p>
+                        </div>
                         <div className="circle-card">
                             {kpiData.map((kpiData) => {
                                 return (
@@ -70,6 +73,7 @@ export class KpiBolChart extends React.Component<{}> {
                             })}
                         </div>
                     </div>
+                    {/*<svg/>*/}
                 </div>
             </>
         )
